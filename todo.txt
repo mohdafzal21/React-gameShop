@@ -1,0 +1,49 @@
+- Prepare Project
+     - setup semantic/material ui / styled components
+     - npm install semantic-ui-css
+     -import "semantic-ui-css/semantic.min.css"
+     -other tools
+- React Component
+- Resuable components
+- Render List
+- React Prop Types -- type checking , validation for our props
+- Conditionals and Default Props
+- State
+    - Bind state to constructor
+    -- this
+    -- arrow function
+- Forms
+   - Controlled vs UnControlled
+   - Text area
+   - Types
+   -  Checkboxes
+   - Radio Button
+   - Select Box
+   - Images form
+
+
+
+- Forms Validation
+  - Error Messages
+  - Form Validation
+  - Form State Refactor
+
+- Create
+
+- Edit
+
+- Update -
+   - Lifecycle sevents - Component will receive props
+
+- Delete
+
+- Create server and data persitance
+
+- Make Async Request to fetch data
+
+-backend crud
+
+- Authentication
+
+- Deploy
+
