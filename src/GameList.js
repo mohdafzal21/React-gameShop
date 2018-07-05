@@ -2,21 +2,28 @@ import React from 'react';
 import GameCard from "./GameCard";
 import PropTypes from 'prop-types';
 
+
 //functional component
 const GameList = ({games})=>(
 <div className="ui four cards">
-    {games.map(game=> <GameCard game={game} key={game.id}/>)}
+    { games.length ===0 ? (
+            <div className= "ui icon message">
+                <div className="header"> no data
+                    <p> add som data</p>
+                </div>
+            </div>
+        )
+        :(games.map(game=> <GameCard game={game} key={game.id}/>))
+        }
 </div>
 )
 
 GameList.propTypes = {
-    games : PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        duration: PropTypes.number.isRequired,
-        players: PropTypes.string.isRequired,
-        price : PropTypes.number.isRequired,
-        img : PropTypes.string
-    })).isRequired
+    games : PropTypes.arrayOf(PropTypes.object).isRequired
 };
+
+GameList.defaultProps = {
+    games : []
+}
 
 export default GameList;
