@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import GameForm from './GameForm';
 import GameList from './GameList';
-import download from './icons/download.jpeg'
-import download2 from './icons/download (1).jpeg';
 import d3 from './icons/d3.jpg';
-import d4 from './icons/d4.jpeg';
 import d5 from './icons/d5.jpeg';
 import d6 from './icons/d6.jpg';
 import d7 from './icons/d7.jpg';
@@ -66,22 +63,27 @@ class App extends Component {
             games : []
         };
        this.toggleFeatured = this.toggleFeatured.bind(this);
-       }
+       this.sortGames = this.sortGames.bind(this);
+    }
 
     componentDidMount(){
-        this.setState({ games :this.sortGames(games) })
+        this.setState({
+            games :this.sortGames(games)
+        })
     }
 
     sortGames(games){
-        return _orderBy(games, ["featured"],["desc", "asc"])
-    }
+        return _orderBy(games, ["featured","name"],["desc", "asc"])
+    };
 
     toggleFeatured(gameId){
+
         const newGames = this.state.games.map(game => {
             if(game.id === gameId) return{...game , featured : !game.featured};
             return game;
         });
-         this.setState({games: newGames});
+
+         this.setState({games: this.sortGames(newGames)});
     };
     render(){
         return (
