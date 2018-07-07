@@ -78,7 +78,8 @@ class App extends Component {
 
     toggleFeatured(gameId){
 
-        const newGames = this.state.games.map(game => {
+        const newGames =
+            this.state.games.map(game => {
             if(game.id === gameId) return{...game , featured : !game.featured};
             return game;
         });

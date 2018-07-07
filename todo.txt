@@ -14,9 +14,11 @@
     -- arrow function
 - Forms
    - Controlled vs UnControlled
-   - Text area
+   6th july
+   - Text area - universal input handler
+    ---  use name , create universal handleChange func and set state to  - [e.target.name] : e.target.value
    - Types
-   -  Checkboxes
+   -   checkboxes --- type= checkbox, value --> checked, checkbox handler, e.target.checked
    - Radio Button
    - Select Box
    - Images form
