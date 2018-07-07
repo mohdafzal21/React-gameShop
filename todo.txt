@@ -20,7 +20,7 @@
    - Types
    -   checkboxes --- type= checkbox, value --> checked, checkbox handler, e.target.checked
    - Radio Button
-   - Select Box
+   - Select Box --  , use select tag -->handle number change use id - option
    - Images form
 
 

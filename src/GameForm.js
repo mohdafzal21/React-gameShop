@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GameForm extends React.Component{
     state ={
@@ -7,9 +8,11 @@ class GameForm extends React.Component{
         price : 0,
         duration : 0,
         players : "",
-        featured : false
+        featured : false,
+        publisher : 0
 
     };
+
     handleSubmit = (e)=>{
         e.preventDefault();
         console.log(this.state)
@@ -120,6 +123,21 @@ class GameForm extends React.Component{
                     />
                     <label htmlFor="featured">Featured</label>
                 </div>
+                <div className="field">
+                    <label>Publishers</label>
+                    <select
+                    value={this.state.publisher}
+                    name="publisher"
+                    onChange={this.handleNumberChange}
+                    >
+                        <option value="0">Choose Pubisher</option>
+                            {this.props.publishers.map(publisher=>(
+                                <option key={publisher._id} value={publisher._id}>{publisher.name}</option>
+                            ))}
+
+                    </select>
+
+                </div>
 
                 <button className="ui button" type="submit">Create</button>
 
@@ -127,5 +145,16 @@ class GameForm extends React.Component{
         )
     }
 }
+
+GameForm.propTypes = {
+    publishers : PropTypes.arrayOf(PropTypes.shape({
+        _id: PropTypes.number.isRequired,
+        name : PropTypes.string.isRequired
+    })).isRequired
+};
+
+GameForm.defaultProps = {
+    publishers : []
+};
 
 export default GameForm;
