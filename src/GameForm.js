@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactImageFallback from 'react-image-fallback';
 
 class GameForm extends React.Component{
     state ={
@@ -9,7 +10,8 @@ class GameForm extends React.Component{
         duration : 0,
         players : "",
         featured : false,
-        publisher : 0
+        publisher : 0,
+        thumbnail: ""
 
     };
 
@@ -55,28 +57,55 @@ class GameForm extends React.Component{
     render(){
         return(
             <form className="ui form" onSubmit={this.handleSubmit}>
-                <div className="field">
-                    <label htmlFor="name">Game Title</label>
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="full game title"
-                        value= {this.state.name}
-                        name= "name"
-                        onChange={this.handleStringChange}
-                    />
+                <div className=" ui grid">
+                    <div className="twelve wide column">
+                        <div className="field">
+                        <label htmlFor="name">Game Title</label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="full game title"
+                            value= {this.state.name}
+                            name= "name"
+                            onChange={this.handleStringChange}
+                        />
+                    </div>
+                        <div className="field">
+                            <label htmlFor="name">Game Description</label>
+                            <textarea
+                                type="text"
+                                id="description"
+                                placeholder="full game title"
+                                value= {this.state.description}
+                                name= "description"
+                                onChange={this.handleStringChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="four wide column">
+                        <div>
+                        <ReactImageFallback
+                            style={{width: '250px', height:'250px'}}
+                            src={this.state.thumbnail}
+                            classname="ui image"
+                            alt="thumbnail"
+                            fallbackImage="http://via.placeholder.com/250x250"
+                        />
+                        </div>
+                    </div>
                 </div>
-                <div className="field">
-                    <label htmlFor="name">Game Description</label>
-                    <input
-                        type="text"
-                        id="description"
-                        placeholder="full game title"
-                        value= {this.state.description}
-                        name= "description"
-                        onChange={this.handleStringChange}
-                    />
-                </div>
+                    <div className="field">
+                        <label htmlFor="name">Thumbnail</label>
+                        <input
+                            type="text"
+                            id="thumbnail"
+                            placeholder="full game image"
+                            value= {this.state.thumbnail}
+                            name= "thumbnail"
+                            onChange={this.handleStringChange}
+                        />
+                    </div>
+
                 <div className= "three fields">
                     <div className="field">
                         <label htmlFor="name">Price</label>
@@ -126,14 +155,14 @@ class GameForm extends React.Component{
                 <div className="field">
                     <label>Publishers</label>
                     <select
-                    value={this.state.publisher}
-                    name="publisher"
-                    onChange={this.handleNumberChange}
+                        value={this.state.publisher}
+                        name="publisher"
+                        onChange={this.handleNumberChange}
                     >
                         <option value="0">Choose Pubisher</option>
-                            {this.props.publishers.map(publisher=>(
-                                <option key={publisher._id} value={publisher._id}>{publisher.name}</option>
-                            ))}
+                        {this.props.publishers.map(publisher=>(
+                            <option key={publisher._id} value={publisher._id}>{publisher.name}</option>
+                        ))}
 
                     </select>
 

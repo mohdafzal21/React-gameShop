@@ -21,7 +21,7 @@
    -   checkboxes --- type= checkbox, value --> checked, checkbox handler, e.target.checked
    - Radio Button
    - Select Box --  , use select tag -->handle number change use id - option
-   - Images form
+   - Images form -- ui.grid > twelve wide column > four wide column -- reactimagefallback
 
 
 
