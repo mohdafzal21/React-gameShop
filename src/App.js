@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactImageFallback from 'react-image-fallback'
+
 
 import './App.css';
 import GameForm from './GameForm';

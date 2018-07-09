@@ -23,6 +23,9 @@
    - Select Box --  , use select tag -->handle number change use id - option
    - Images form -- ui.grid > twelve wide column > four wide column -- reactimagefallback
 
+--- Dynamic Ui
+  - conditional rendering : Add TopNavigation - ui secondary pointing menu>a.item>icon plus
+
 
 
 - Forms Validation
