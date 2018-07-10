@@ -85,7 +85,7 @@ class GameForm extends React.Component{
                     <div className="four wide column">
                         <div>
                         <ReactImageFallback
-                            style={{width: '250px', height:'250px'}}
+                            style={{width: '200px', height:'200px'}}
                             src={this.state.thumbnail}
                             classname="ui image"
                             alt="thumbnail"

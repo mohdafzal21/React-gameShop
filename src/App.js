@@ -105,14 +105,23 @@ class App extends Component {
     hideGameForm = ()=>this.setState({showGameForm :false});
 
     render(){
+        const numberOfColumns = this.state.showGameForm ? "ten" : "sixteen";
         return (
+
             <div className="ui container">
                 <TopNavigation showGameForm={this.showGameForm}/>
-                {this.state.showGameForm &&  <GameForm publishers={publishers} cancel={this.hideGameForm}/>}
-                <GameList
-                    games = {this.state.games}
-                    toggleFeatured = {this.toggleFeatured}
-                />
+
+                <div className="ui stackable grid">
+                    <div className="six wide column">
+                        {this.state.showGameForm &&  (<GameForm publishers={publishers} cancel={this.hideGameForm}/>)}
+                    </div>
+                    <div className={`${numberOfColumns} wide column`}>
+                        <GameList
+                            games = {this.state.games}
+                            toggleFeatured = {this.toggleFeatured}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }
