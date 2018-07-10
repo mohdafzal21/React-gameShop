@@ -19,10 +19,28 @@ class GameForm extends React.Component{
         }
 
     };
+    validate(data)  {
+        const errors = {};
+
+        if(!data.name) errors.name = "this field cannot be blank";
+        if(!data.players) errors.players = "this field cannot be blank";
+        if(!data.publisher) errors.publisher = "this field cannot be blank";
+        if(!data.thumbnail) errors.thumbnail = "this field cannot be blank";
+
+        if(data.price <0 ) errors.price = "too cheap ";
+        if(data.duration <0 ) errors.duration = "too less ";
+
+        return errors;
+}
 
     handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(this.state.data)
+        const errors = this.validate(this.state.data);
+        this.setState({errors});
+
+        if(Object.keys(errors).length === 0){
+            console.log(this.state.data)
+        }
     };
     // handleNameChange = (e) =>{
     //     this.setState({
