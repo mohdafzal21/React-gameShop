@@ -164,11 +164,14 @@ class GameForm extends React.Component{
                             <option key={publisher._id} value={publisher._id}>{publisher.name}</option>
                         ))}
 
-                    </select>
+                        </select>
+                </div>
+                <div className="ui fluid buttons">
+                    <button className="ui primary button" type="submit">Create</button>
+                    <div className="or"> </div>
+                        <a className="ui button" onClick={this.props.cancel}>Cancel</a>
 
                 </div>
-
-                <button className="ui button" type="submit">Create</button>
 
             </form>
         )
@@ -179,7 +182,9 @@ GameForm.propTypes = {
     publishers : PropTypes.arrayOf(PropTypes.shape({
         _id: PropTypes.number.isRequired,
         name : PropTypes.string.isRequired
-    })).isRequired
+    })).isRequired,
+    cancel: PropTypes.func.isRequired
+
 };
 
 GameForm.defaultProps = {

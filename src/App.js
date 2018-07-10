@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-
 import './App.css';
 import GameForm from './GameForm';
 import GameList from './GameList';
@@ -9,6 +7,7 @@ import d5 from './icons/d5.jpeg';
 import d6 from './icons/d6.jpg';
 import d7 from './icons/d7.jpg';
 import _orderBy from 'lodash/orderBy'
+import TopNavigation from './TopNavigation';
 
 const publishers = [
     {
@@ -75,7 +74,8 @@ class App extends Component {
     constructor(props){
         super(props);
        this.state = {
-            games : []
+            games : [],
+           showGameForm : false
         };
        this.toggleFeatured = this.toggleFeatured.bind(this);
        this.sortGames = this.sortGames.bind(this);
@@ -99,12 +99,16 @@ class App extends Component {
             return game;
         });
 
-         this.setState({games: this.sortGames(newGames)});
+         this.setState({games: newGames});
     };
+    showGameForm = ()=>this.setState({showGameForm :true});
+    hideGameForm = ()=>this.setState({showGameForm :false});
+
     render(){
         return (
             <div className="ui container">
-                <GameForm publishers={publishers}/>
+                <TopNavigation showGameForm={this.showGameForm}/>
+                {this.state.showGameForm &&  <GameForm publishers={publishers} cancel={this.hideGameForm}/>}
                 <GameList
                     games = {this.state.games}
                     toggleFeatured = {this.toggleFeatured}
